@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const output = document.getElementById("output");
 
 function createPromise() {
@@ -17,11 +16,7 @@ const promises = [
   createPromise()
 ];
 
-const startTime = Date.now();
-
 Promise.all(promises).then((results) => {
-  const totalTime = (Date.now() - startTime) / 1000;
-
   output.innerHTML = "";
 
   results.forEach((time, index) => {
@@ -29,11 +24,13 @@ Promise.all(promises).then((results) => {
 
     row.innerHTML = `
       <td>Promise ${index + 1}</td>
-      <td>${time}</td>
+      <td>${time.toFixed(3)}</td>
     `;
 
     output.appendChild(row);
   });
+
+  const totalTime = Math.max(...results);
 
   const totalRow = document.createElement("tr");
 
