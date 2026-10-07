@@ -30,13 +30,13 @@ Promise.all(promises).then((results) => {
     output.appendChild(row);
   });
 
-  const totalTime = Math.max(...results);
+  const total = Math.max(...results);
 
   const totalRow = document.createElement("tr");
 
   totalRow.innerHTML = `
     <td>Total</td>
-    <td>${totalTime.toFixed(3)}</td>
+    <td>${total.toFixed(3)}</td>
   `;
 
   output.appendChild(totalRow);
